@@ -7,6 +7,11 @@ def get_color_images(input_image):
     ycbcr_image = cv2.cvtColor(high_poly, cv2.COLOR_RGB2YCrCb)
     return high_poly, gray_image, ycbcr_image
 
+def create_output_image(outImage, final_image):
+    if final_image is not None:
+        cv2.imwrite(outImage, final_image)
+    return final_image
+
 def main(*args, **kwargs):
     input_image = kwargs['input_image']
     output_image = kwargs['output_image']
