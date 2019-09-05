@@ -1,3 +1,4 @@
+import sys
 import cv2
 
 def get_color_images(input_image):
@@ -7,9 +8,9 @@ def get_color_images(input_image):
     ycbcr_image = cv2.cvtColor(high_poly, cv2.COLOR_RGB2YCrCb)
     return high_poly, gray_image, ycbcr_image
 
-def create_output_image(outImage, final_image):
+def create_output_image(final_image, out_location):
     if final_image is not None:
-        cv2.imwrite(outImage, final_image)
+        cv2.imwrite(out_location, final_image)
     return final_image
 
 def main(*args, **kwargs):
