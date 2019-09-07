@@ -20,4 +20,5 @@ def main(*args, **kwargs):
 
 # invoked with tangrams input_image output_image
 if __name__ == '__main__':
-    create_output_image(*sys.argv[1:])
+    img = cv2.imread(sys.argv[1], 0)
+    create_output_image(img, sys.argv[2])
