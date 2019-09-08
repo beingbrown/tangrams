@@ -20,5 +20,6 @@ def main(*args, **kwargs):
 
 # invoked with tangrams input_image output_image
 if __name__ == '__main__':
-    img = cv2.imread(sys.argv[1], 0)
-    create_output_image(img, sys.argv[2])
+    high, low, ycbcr = get_color_images(sys.argv[1])
+    ycbcr = ycbcr[:, :, 0]
+    create_output_image(high, sys.argv[2])
