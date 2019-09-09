@@ -22,4 +22,6 @@ def main(*args, **kwargs):
 if __name__ == '__main__':
     high, low, ycbcr = get_color_images(sys.argv[1])
     ycbcr = ycbcr[:, :, 0]
-    create_output_image(high, sys.argv[2])
+#    blur = cv2.GaussianBlur(ycbcr,(5,5),0)
+    blur = cv2.GaussianBlur(ycbcr,(0,0),1)
+    upper_thresh,img = cv2.threshold(blur,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
