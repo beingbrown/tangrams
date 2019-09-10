@@ -25,3 +25,5 @@ if __name__ == '__main__':
 #    blur = cv2.GaussianBlur(ycbcr,(5,5),0)
     blur = cv2.GaussianBlur(ycbcr,(0,0),1)
     upper_thresh,img = cv2.threshold(blur,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+    edges = cv2.Canny(ycbcr, upper_thresh * 0.5, upper_thresh)
+    create_output_image(edges, sys.argv[2] + "_canny.jpg")
