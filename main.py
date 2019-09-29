@@ -1,9 +1,13 @@
 import sys
 import cv2
+import numpy as np
+from math import hypot
+
+def distance(p, q):
+    return hypot(p[0] - q[0], p[1] - q[1])
 
 def get_color_images(input_image):
     high_poly = cv2.imread(input_image)
-    # Use Otsu's method here ?
     gray_image = cv2.cvtColor(high_poly, cv2.COLOR_BGR2GRAY)
     ycbcr_image = cv2.cvtColor(high_poly, cv2.COLOR_RGB2YCrCb)
     return high_poly, gray_image, ycbcr_image
